@@ -1,6 +1,10 @@
 # DigitalK2 plugin
 
-Swedish annual reports for small limited companies, prepared with your AI.
+[![DigitalK2 MCP connector on Glama](https://glama.ai/mcp/connectors/se.digitalk2/digitalk2/badges/score.svg)](https://glama.ai/mcp/connectors/se.digitalk2/digitalk2)
+[![MCP Registry](https://img.shields.io/badge/MCP_Registry-se.digitalk2%2Fdigitalk2-blue)](https://registry.modelcontextprotocol.io/v0/servers?search=digitalk2)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+Swedish annual reports (årsredovisning) for small limited companies under K2, prepared with your AI in Claude, ChatGPT, Cursor or Codex.
 
 [DigitalK2](https://www.digitalk2.se) is a hosted service for annual reports (årsredovisning) for small Swedish limited companies (aktiebolag) under the K2 rules. It produces the annual report in iXBRL, the tax calculation and the INK2 tax return, and files the report digitally with Bolagsverket. This repository connects AI agents to the DigitalK2 MCP server, so your AI can upload the SIE file, review the figures, read the tax calculation and fill in the report together with you.
 
@@ -66,6 +70,11 @@ npx skills add digitalk2se/digitalk2-plugin
 
 Step-by-step guides with animations: [www.digitalk2.se/mcp](https://www.digitalk2.se/mcp)
 
+## Listed in
+
+- [Official MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=digitalk2) as `se.digitalk2/digitalk2` ([`server.json`](server.json))
+- [Glama](https://glama.ai/mcp/connectors/se.digitalk2/digitalk2)
+
 ## Tools
 
 | Tool | Access | What it does |
@@ -79,10 +88,10 @@ Step-by-step guides with animations: [www.digitalk2.se/mcp](https://www.digitalk
 | `create_draft` | Prepare | Creates a new, empty draft and returns the link to open it in AI mode. |
 | `create_sie_upload` | Prepare | Creates a temporary upload link for a SIE file that is too large to send in a tool call. |
 | `upload_sie` | Prepare | Uploads a SIE file (SIE4) to the draft and reads it in step 1. |
-| `fill_input` | Prepare | Types into a form field in the guide, mainly in step 1. |
-| `update_fields` | Prepare | Fills in or changes fields in the current step (figures, tax, management report, notes, signatories). |
-| `press_button` | Prepare | Presses a button in the current step, like the user would. |
-| `answer_prompt` | Prepare | Answers a question or dialog in the guide by pressing the same button the user would. |
+| `fill_input` | Prepare | Types into a form field in step 1 (company details). For figures and the sections in steps 2 to 6, use `update_fields`. |
+| `update_fields` | Prepare | Fills in or changes fields in the current step in steps 2 to 6 (figures, tax, management report, notes, signatories). For the form fields in step 1, use `fill_input`. |
+| `press_button` | Prepare | Presses a button on the current step's page, like the user would. For questions and dialogs from the guide (listed in `prompts`), use `answer_prompt`. |
+| `answer_prompt` | Prepare | Answers a question or dialog listed in `prompts` (from `get_state` or a tool result) by pressing the same button the user would. For other buttons in the step, use `press_button`. |
 | `next_step` | Prepare | Presses Next in the guide, with exactly the same checks as for the user. |
 | `go_to_step` | Prepare | Goes back to an earlier step, like clicking the timeline. |
 
@@ -96,7 +105,7 @@ None of the tools can pay, sign, enter personal identity numbers or file anythin
 
 ## På svenska
 
-DigitalK2 är årsredovisning för små svenska aktiebolag (K2), som du kan göra tillsammans med din AI. Det här repot kopplar AI-agenter som Claude, ChatGPT, Cursor och Codex till DigitalK2:s MCP-server. Installera med `npx plugins add digitalk2se/digitalk2-plugin`, eller lägg till adressen `https://mcp.digitalk2.se/mcp` som anpassad koppling i din klient. Du loggar in med ditt DigitalK2-konto första gången. Betalning, signering och inlämning gör du alltid själv i steg 7. Mer information och guider finns på [www.digitalk2.se/mcp](https://www.digitalk2.se/mcp).
+DigitalK2 är årsredovisning för små svenska aktiebolag (K2), som du kan göra tillsammans med din AI. Ladda upp SIE-filen från bokföringsprogrammet, granska resultat- och balansräkningen, få skatteberäkningen och INK2, och lämna in årsredovisningen digitalt (iXBRL) till Bolagsverket. Det här repot kopplar AI-agenter som Claude, ChatGPT, Cursor och Codex till DigitalK2:s MCP-server. Installera med `npx plugins add digitalk2se/digitalk2-plugin`, eller lägg till adressen `https://mcp.digitalk2.se/mcp` som anpassad koppling i din klient. Du loggar in med ditt DigitalK2-konto första gången. Betalning, signering och inlämning gör du alltid själv i steg 7. Mer information och guider finns på [www.digitalk2.se/mcp](https://www.digitalk2.se/mcp).
 
 ## License
 

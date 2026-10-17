@@ -18,13 +18,18 @@ Tools that work without the window: `whoami`, `list_drafts`, `create_draft`, `cr
 ## Workflow, from SIE file to filed report
 
 1. **Start.** `whoami` to confirm the account, then `list_drafts`. Continue an existing draft or create one with `create_draft`, and give the user the link.
-2. **Step 1, upload and company details.** Upload the SIE file with `upload_sie`. Send the file unchanged, byte for byte: use `create_sie_upload` (a link to upload with `curl --upload-file`) when you can reach the file, otherwise `content_base64` of the exact file for small files. Never retype, recreate or edit a SIE file. If you cannot send it unchanged, ask the user to drag the file into the upload box in the window. Use `fill_input` for fields in step 1 and `next_step` to continue.
+2. **Step 1, upload and company details.** Upload the SIE file with `upload_sie`. Send the file unchanged, byte for byte: use `create_sie_upload` (a link to upload with `curl --upload-file`) when you can reach the file, otherwise `content_base64` of the exact file for small files. Never retype, recreate or edit a SIE file. If you cannot send it unchanged, ask the user to drag the file into the upload box in the window. Use `fill_input` for the form fields in step 1 (not `update_fields`) and `next_step` to continue.
 3. **Step 2, review.** `read_draft` for the income statement and balance sheet. Explain differences to the user. Change rows only with `update_fields` when the user asks you to, in the amounts shown in the guide.
-4. **Step 3, tax.** `read_tax` for the tax calculation and INK2. Answer the guide's questions with `answer_prompt` or `press_button`, after the user has decided.
+4. **Step 3, tax.** `read_tax` for the tax calculation and INK2. Answer the guide's questions (listed in `prompts`) with `answer_prompt`, after the user has decided.
 5. **Steps 4 to 6.** Fill in the management report, notes and signatories with `update_fields` (only the current step's section). Never invent names, dates or identity numbers; ask the user.
 6. **Before step 7.** Read the whole report with `preview_report`, then give the user the draft link so they can pay, sign and file.
 
 Use `get_state` whenever you are unsure where the draft is: it shows the current step, whether Next can be pressed, open questions and messages that stop the flow. `go_to_step` goes back to an earlier step, like the timeline in the guide.
+
+## Choosing between similar tools
+
+- **Fields:** `fill_input` for the form fields in step 1 (company details). `update_fields` for figures and sections in steps 2 to 6.
+- **Buttons:** `answer_prompt` for questions and dialogs listed in `prompts` (from `get_state` or a tool result). `press_button` for other buttons on the current step's page. Use `next_step` and `go_to_step` to move between steps, not `press_button`.
 
 ## Rules
 
