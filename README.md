@@ -90,8 +90,8 @@ Step-by-step guides with animations: [www.digitalk2.se/mcp](https://www.digitalk
 | `upload_sie` | Prepare | Uploads a SIE file (SIE4) to the draft and reads it in step 1. |
 | `fill_input` | Prepare | Types into a form field in step 1 (company details). For figures and the sections in steps 2 to 6, use `update_fields`. |
 | `update_fields` | Prepare | Fills in or changes fields in the current step in steps 2 to 6 (figures, tax, management report, notes, signatories). For the form fields in step 1, use `fill_input`. |
-| `press_button` | Prepare | Presses a button on the current step's page, like the user would. For questions and dialogs from the guide (listed in `prompts`), use `answer_prompt`. |
-| `answer_prompt` | Prepare | Answers a question or dialog listed in `prompts` (from `get_state` or a tool result) by pressing the same button the user would. For other buttons in the step, use `press_button`. |
+| `press_button` | Prepare | Presses a button or yes/no question in the form of the current step (listed in `actions` from `get_state`), like the user would. For dialogs the guide shows (listed in `prompts`), use `answer_prompt`. |
+| `answer_prompt` | Prepare | Answers a dialog the guide shows (listed in `prompts` from `get_state` or a tool result) by pressing the same button the user would. For buttons and yes/no questions in the form itself, use `press_button`. |
 | `next_step` | Prepare | Presses Next in the guide, with exactly the same checks as for the user. |
 | `go_to_step` | Prepare | Goes back to an earlier step, like clicking the timeline. |
 
