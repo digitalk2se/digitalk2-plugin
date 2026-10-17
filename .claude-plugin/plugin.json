@@ -1,0 +1,16 @@
+{
+  "name": "digitalk2",
+  "displayName": "DigitalK2",
+  "version": "1.0.0",
+  "description": "Swedish annual reports for small limited companies, prepared with your AI.",
+  "author": {
+    "name": "DigitalK2",
+    "email": "hej@digitalk2.se",
+    "url": "https://www.digitalk2.se"
+  },
+  "homepage": "https://www.digitalk2.se/mcp",
+  "repository": "https://github.com/digitalk2se/digitalk2-plugin",
+  "license": "MIT",
+  "keywords": ["annual-report", "arsredovisning", "accounting", "sweden", "k2", "ixbrl", "mcp"],
+  "mcpServers": "./.mcp.json"
+}
