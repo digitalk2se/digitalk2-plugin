@@ -1,0 +1,30 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "se.digitalk2/digitalk2",
+  "title": "DigitalK2",
+  "description": "K2 annual reports for Swedish limited companies: SIE import, tax, INK2 and filing prep.",
+  "version": "1.0.0",
+  "websiteUrl": "https://www.digitalk2.se/mcp",
+  "repository": {
+    "url": "https://github.com/digitalk2se/digitalk2-plugin",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://www.digitalk2.se/favicon.png",
+      "mimeType": "image/png",
+      "sizes": ["192x192"]
+    },
+    {
+      "src": "https://www.digitalk2.se/favicon-128x128.png",
+      "mimeType": "image/png",
+      "sizes": ["128x128"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.digitalk2.se/mcp"
+    }
+  ]
+}
