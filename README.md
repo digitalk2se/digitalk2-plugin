@@ -83,15 +83,20 @@ Step-by-step guides with animations: [www.digitalk2.se/mcp](https://www.digitalk
 | `list_drafts` | Read | Lists the user's annual report drafts, most recently changed first. |
 | `get_state` | Read | Shows where a draft is in the guide: current step, whether Next can be pressed, open questions and messages. |
 | `read_draft` | Read | Reads the content of a draft one section at a time, as shown in the guide. |
+| `show_statement_tab` | Read | Shows the income statement or the balance sheet in step 2 in the user's window. Changes no data. |
 | `read_tax` | Read | Reads the tax calculation and INK2 exactly as step 3 shows them. |
 | `preview_report` | Read | Previews the full annual report as text, generated with the same code as the preview in step 7. |
 | `create_draft` | Prepare | Creates a new, empty draft and returns the link to open it in AI mode. |
 | `create_sie_upload` | Prepare | Creates a temporary upload link for a SIE file that is too large to send in a tool call. |
 | `upload_sie` | Prepare | Uploads a SIE file (SIE4) to the draft and reads it in step 1. |
+| `start_manual_entry` | Prepare | Chooses manual entry in step 1 when there is no SIE file. |
 | `fill_input` | Prepare | Types into a form field in step 1 (company details). For figures and the sections in steps 2 to 6, use `update_fields`. |
-| `update_fields` | Prepare | Fills in or changes fields in the current step in steps 2 to 6 (figures, tax, management report, notes, signatories). For the form fields in step 1, use `fill_input`. |
-| `press_button` | Prepare | Presses a button or yes/no question in the form of the current step (listed in `actions` from `get_state`), like the user would. For dialogs the guide shows (listed in `prompts`), use `answer_prompt`. |
-| `answer_prompt` | Prepare | Answers a dialog the guide shows (listed in `prompts` from `get_state` or a tool result) by pressing the same button the user would. For buttons and yes/no questions in the form itself, use `press_button`. |
+| `fetch_company_details` | Prepare | Fetches the company details from Bolagsverket in step 1 and fills them in. Replaces existing company details. |
+| `set_first_annual_report` | Prepare | Answers whether it is the company's first annual report (step 1). `true` sets the prior-year figures to 0. |
+| `update_fields` | Prepare | Replaces values in the current step in steps 2 to 6 (figures, tax, management report, notes, signatories), including yes/no questions; lists are replaced as a whole. For the form fields in step 1, use `fill_input`. |
+| `book_result_in_balance_sheet` | Prepare | Books the year's result on the balance sheet row when the guide offers it (step 2). Replaces the row's amount. |
+| `apply_tax_adjustment` | Prepare | Books the tax from step 3 into the income statement and balance sheet in step 2, like the guide's automatic adjustment. Does nothing if already adjusted. |
+| `answer_prompt` | Prepare | Answers a dialog the guide shows (listed in `prompts` from `get_state` or a tool result) by pressing the same button the user would. |
 | `next_step` | Prepare | Presses Next in the guide, with exactly the same checks as for the user. |
 | `go_to_step` | Prepare | Goes back to an earlier step, like clicking the timeline. |
 
