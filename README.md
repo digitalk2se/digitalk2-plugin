@@ -88,7 +88,7 @@ Step-by-step guides with animations: [www.digitalk2.se/mcp](https://www.digitalk
 | `preview_report` | Read | Previews the full annual report as text, generated with the same code as the preview in step 7. |
 | `create_draft` | Prepare | Creates a new, empty draft and returns the link to open it in AI mode. |
 | `create_sie_upload` | Prepare | Creates a temporary upload link for a SIE file that is too large to send in a tool call. |
-| `upload_sie` | Prepare | Uploads a SIE file (SIE4) to the draft and reads it in step 1. |
+| `upload_sie` | Prepare | Reads a SIE file (SIE4) into step 1, sent unchanged as an upload id or base64. Replaces the draft's company details, statements and notes. |
 | `start_manual_entry` | Prepare | Chooses manual entry in step 1 when there is no SIE file. |
 | `fill_input` | Prepare | Types into a form field in step 1 (company details). For figures and the sections in steps 2 to 6, use `update_fields`. |
 | `fetch_company_details` | Prepare | Fetches the company details from Bolagsverket in step 1 and fills them in. Replaces existing company details. |
