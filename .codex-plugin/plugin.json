@@ -15,12 +15,17 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "DigitalK2",
-    "shortDescription": "Swedish annual reports for small limited companies, prepared with your AI.",
+    "shortDescription": "Swedish K2 annual reports",
     "longDescription": "Connects ChatGPT and Codex to DigitalK2, a hosted service for annual reports (årsredovisning) for small Swedish limited companies (aktiebolag, K2). Your AI uploads the SIE file, reviews the figures, reads the tax calculation and INK2, and fills in the report with you in the same guided flow as on the web. Payment, signing and filing with Bolagsverket are always done by you. Sign in with OAuth; no API key needed.",
     "developerName": "DigitalK2 AB",
     "category": "Finance",
     "capabilities": ["Interactive", "Read", "Write"],
     "websiteURL": "https://www.digitalk2.se/mcp",
+    "privacyPolicyURL": "https://www.digitalk2.se/integritet",
+    "termsOfServiceURL": "https://www.digitalk2.se/villkor",
+    "brandColor": "#2B6CFF",
+    "logo": "./assets/logo.png",
+    "composerIcon": "./assets/composer-icon.png",
     "defaultPrompt": [
       "Show my annual report drafts in DigitalK2",
       "Create a new annual report from my SIE file"
