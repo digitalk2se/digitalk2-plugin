@@ -22,7 +22,7 @@ Tools that work without the window: `whoami`, `list_drafts`, `create_draft`, `cr
 3. **Step 2, review.** `read_draft` for the income statement and balance sheet, and `show_statement_tab` to show each statement in the window (the guide asks whether the balance sheet was reviewed if it was never shown). Explain differences to the user. Change rows only with `update_fields` when the user asks you to, in the amounts shown in the guide. If the guide offers to book the year's result in the balance sheet, use `book_result_in_balance_sheet` after the user agrees.
 4. **Step 3, tax.** Set the questions in the form (for example `ink2Help`, `aktuellSkattHelp`) with `update_fields` and read the tax calculation and INK2 with `read_tax`. Book what `to_book` shows into step 2 with `apply_tax_adjustment` after the user agrees. Answer dialogs listed in `prompts` with `answer_prompt`, after the user has decided.
 5. **Steps 4 to 6.** Fill in the management report, notes and signatories with `update_fields` (only the current step's section). Never invent names, dates or identity numbers; ask the user.
-6. **Before step 7.** Read the whole report with `preview_report`, then give the user the draft link so they can pay, sign and file.
+6. **Before step 7.** Read the whole report with `preview_report`. `next_step` with `from_step` 6 opens step 7, where the user pays, signs and files themselves; give them the draft link.
 
 Use `get_state` whenever you are unsure where the draft is: it shows the current step, whether Next can be pressed, open questions and messages that stop the flow. `go_to_step` goes back to an earlier step, like the timeline in the guide.
 

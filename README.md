@@ -97,7 +97,7 @@ Step-by-step guides with animations: [www.digitalk2.se/mcp](https://www.digitalk
 | `book_result_in_balance_sheet` | Prepare | Books the year's result on the balance sheet row when the guide offers it (step 2). Replaces the row's amount. |
 | `apply_tax_adjustment` | Prepare | Books the tax from step 3 into the income statement and balance sheet in step 2, like the guide's automatic adjustment. Does nothing if already adjusted. |
 | `answer_prompt` | Prepare | Answers a dialog the guide shows (listed in `prompts` from `get_state` or a tool result) by pressing the same button the user would. |
-| `next_step` | Prepare | Presses Next in the guide, with exactly the same checks as for the user. |
+| `next_step` | Prepare | Moves from `from_step` to the next step (1 upload → 2 review → 3 tax → 4 management report → 5 notes → 6 signatories → 7 finish), with exactly the same checks as for the user. Payment, signing and filing in step 7 are done by the user. |
 | `go_to_step` | Prepare | Goes back to an earlier step, like clicking the timeline. |
 
 None of the tools can pay, sign, enter personal identity numbers or file anything. The AI only sees the signed-in user's own drafts.
