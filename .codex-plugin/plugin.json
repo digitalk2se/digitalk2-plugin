@@ -23,6 +23,7 @@
     "websiteURL": "https://www.digitalk2.se/mcp",
     "privacyPolicyURL": "https://www.digitalk2.se/integritet",
     "termsOfServiceURL": "https://www.digitalk2.se/villkor",
+    "supportURL": "https://www.digitalk2.se/om-oss",
     "brandColor": "#2B6CFF",
     "logo": "./assets/logo.png",
     "composerIcon": "./assets/composer-icon.png",
