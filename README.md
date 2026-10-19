@@ -38,7 +38,7 @@ npx skills add digitalk2se/digitalk2-plugin
 
 ### Manual connection
 
-- **Claude** (claude.ai and Claude Desktop): Settings → Connectors → Add custom connector, paste the URL and click Connect. In Claude Code:
+- **Claude** (claude.ai and Claude Desktop): [open Claude with DigitalK2 prefilled](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=DigitalK2&connectorUrl=https://mcp.digitalk2.se/mcp), then click Add and Connect. Or go to Settings → Connectors → Add custom connector, paste the URL and click Connect. In Claude Code:
 
   ```bash
   claude mcp add --transport http digitalk2 https://mcp.digitalk2.se/mcp
